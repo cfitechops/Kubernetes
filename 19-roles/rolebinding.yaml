@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-sa-roleBinding
+  namespace: k8s-ns
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pod-sa-role
+subjects:
+- kind: ServiceAccount
+  name: pod-sa
+  namespace: team-elephant

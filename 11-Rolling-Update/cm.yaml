@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf
+  namespace: cfitech
+data:
+  index-pre: |
+    site 1
+  index-post: |
+    site 2

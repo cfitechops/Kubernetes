@@ -1,0 +1,5 @@
+k create ns k8s-ns
+k create serviceaccount pod-sa --namespace=k8s-ns -o yaml --dry-run=client > serviceaccount.yaml
+k create role pod-sa-role --namespace=k8s-ns --resource pods --verb list,get -o yaml --dry-run=client > role.yaml
+k create rolebinding  pod-sa-roleBinding --namespace=k8s-ns --role pod-sa-role --serviceaccount team-elephant:pod-sa -o yaml --dry-run=client > rolebinding.yaml
+k run pod-sa --image nginx --namespace=k8s-ns -o yaml --dry-run=client --command sleep 10000 > pod.yaml

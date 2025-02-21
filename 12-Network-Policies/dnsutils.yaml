@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dnsutils
+  #namespace: default
+  namespace: k8s-ns
+  labels:
+    app: dnsutils
+spec:
+  setHostnameAsFQDN: true
+  containers:
+  - image: ubuntu:22.04
+    name: dnsutils
+    command:
+    - sleep
+    - "infinity"
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always
