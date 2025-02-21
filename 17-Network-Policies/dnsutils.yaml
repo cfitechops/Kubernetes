@@ -2,8 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: dnsutils
-  #namespace: default
-  namespace: k8s-ns
+  namespace: cfitech
   labels:
     app: dnsutils
 spec:

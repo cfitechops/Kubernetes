@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: deny-all
-  namespace: k8s-ns
+  namespace: cfitech
 spec:
   podSelector: {}
   policyTypes:
@@ -15,7 +15,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-default
-  namespace: k8s-ns
+  namespace: cfitech
 spec:
   podSelector:
     matchLabels:
@@ -36,7 +36,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-default-8080
-  namespace: k8s-ns
+  namespace: cfitech
 spec:
   podSelector:
     matchLabels:

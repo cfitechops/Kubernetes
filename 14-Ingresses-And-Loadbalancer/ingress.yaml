@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  namespace: cfitech
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web
+            port:
+              name: http
+      # - path: /api/v1
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: v1
+      #       port:
+      #         name: http
+      # - path: /api/v2
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: v2
+      #       port:
+      #         name: http
+    host: cfitech.diarabaka.com
+    tls:
+    - secretName: asd
+      hosts:
+      - fitech.diarabaka.com

@@ -5,8 +5,7 @@ metadata:
   name: mysql-passwd
   namespace: cfitech
 data:
-  passwd: UEBzc3cwcmQxMjM= 
-
+  passwd: UEBzc3cwcmQxMjM=
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -17,7 +16,6 @@ data:
   cidr-global: |
     [mysqld]
     slow-query-log = 1
-
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -54,7 +52,6 @@ spec:
             configMapKeyRef:
               name: mysql-config
               key: cidr-global
-
 ---
 apiVersion: v1
 kind: Service
@@ -67,6 +64,10 @@ spec:
   - name: sql
     port: 3306
     protocol: TCP
-    targetPort: sql
+    targetPort: 3306
   selector:
     app: mysql
+
+
+
+  

@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
-  namespace: k8s-ns
+  name: nginx
+  namespace: cfitech
   labels:
-    app: web
+    app: nginx
 spec:
-  replicas: 3
+  replicas: 5
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -14,11 +14,11 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: web
+      app: nginx
   template:
     metadata:
       labels:
-        app: web
+        app: nginx
     spec:
       containers:
       - name: nginx
@@ -26,19 +26,18 @@ spec:
         ports:
         - containerPort: 80
           name: http
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: web
-  namespace: k8s-ns
+  namespace: cfitech
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
   - name: http
     port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    app: web
+    app: nginx

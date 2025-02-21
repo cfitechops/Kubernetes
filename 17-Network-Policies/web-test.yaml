@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-test
-  namespace: k8s-ns
+  namespace: cfitech
   labels:
     app: web-test
 spec:
@@ -20,6 +20,25 @@ spec:
       labels:
         app: web-test
     spec:
+      #     affinity:
+      #       podAffinity:
+      #         preferredDuringSchedulingIgnoredDuringExecution:
+      #         - podAffinityTerm:
+      #             topologyKey: topology.kubernetes.io/zone
+      #             labelSelector:
+      #               matchLabels:
+      #                 app: mysql
+      #           weight: 100
+      #       podAntiAffinity:
+      #         requiredDuringSchedulingIgnoredDuringExecution:
+      #         - topologyKey: topology.kubernetes.io/zone
+      #           labelSelector:
+      #             matchLabels:
+      #               app: web
+      #     initContainers:
+      #     - name: init-db
+      #       image: busybox:1.28
+      #       command: [ 'sh', '-c', "until nslookup sql.cfitech.svc.cluster.local; do echo waiting for db; sleep 2; done" ]
       containers:
       - name: nginx
         image: nginx:1.25
@@ -48,7 +67,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: web-test
-  namespace: k8s-ns
+  namespace: cfitech
 spec:
   type: NodePort
   ports:

@@ -1,38 +1,41 @@
+---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: mysql-passwd
+  name: sql-passwd
   namespace: cfitech
 data:
-  passwd: UEBzc3cwcmQxMjM=
+  passwd: UEBzc3cwcmQxMjM= 
+
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mysql-config
+  name: sql-config
   namespace: cfitech
 data:
   cnf: |
     [mysqld]
     slow-query-log = 1
+
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
+  name: sql
   namespace: cfitech
   labels:
-    app: mysql
+    app: sql
 spec:
-  serviceName: mysql
-  replicas: 5
+  serviceName: sql
+  replicas: 3
   selector:
     matchLabels:
-      app: mysql
+      app: sql
   template:
     metadata:
       labels:
-        app: mysql
+        app: sql
     spec:
       affinity:
         podAffinity:
@@ -40,13 +43,13 @@ spec:
           - topologyKey: topology.kubernetes.io/zone
             labelSelector:
               matchLabels:
-                app: nginx
+                app: web
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - topologyKey: topology.kubernetes.io/zone
             labelSelector:
               matchLabels:
-                app: mysql
+                app: sql
       containers:
       - name: database
         image: mysql:latest
@@ -57,25 +60,26 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-passwd
+              name: sql-passwd
               key: passwd
         - name: MYSQL_CONFIGURATION
           valueFrom:
             configMapKeyRef:
-              name: mysql-config
+              name: sql-config
               key: cnf
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: sql
   namespace: cfitech
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: sql
     port: 3306
     protocol: TCP
-    targetPort: sql
+    targetPort: 3306
   selector:
-    app: mysql
+    app: sql

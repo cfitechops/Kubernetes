@@ -2,11 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: web
-  namespace: k8s-ns
+  namespace: cfitech
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    external-dns.alpha.kubernetes.io/target: diarabaka.com
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - cfitech.diarabaka.com
+    secretName: cfitech-tls-ingress
   rules:
   - http:
       paths:
@@ -17,6 +22,4 @@ spec:
             name: web
             port:
               name: http
-    host: k8s-ns.myk8s.be
-
-      
+    host: cfitech.diarabaka.com

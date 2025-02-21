@@ -1,8 +1,11 @@
+# Kubernetes Init Containers | What they are and how to use them
+
+```sh
 apiVersion: v1
 kind: Pod
 metadata:
   name: newpod
-  namespace: k8s-ns
+  namespace: cfitech
 spec:
   volumes:
   - name: shared-vol
@@ -25,3 +28,4 @@ spec:
     volumeMounts:
     - mountPath: /usr/shared/app
       name: shared-vol
+```

@@ -5,7 +5,7 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    email: thiernobarry554@gmail.com
+    email: <MY_EMAIL>@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-prod
@@ -22,7 +22,7 @@ metadata:
   name: letsencrypt-staging
 spec:
   acme:
-    email: thiernobarry554@gmail.com
+    email: <MY_EMAIL>@gmail.com
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-staging

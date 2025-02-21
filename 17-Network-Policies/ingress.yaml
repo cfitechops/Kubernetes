@@ -4,14 +4,9 @@ metadata:
   name: web
   namespace: cfitech
   annotations:
-    external-dns.alpha.kubernetes.io/target: diarabaka.be
-    cert-manager.io/issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - cfitech.myk8s.be
-    secretName: learning-tls-ingress
   rules:
   - http:
       paths:
@@ -24,4 +19,9 @@ spec:
               name: http
     host: cfitech.myk8s.be
 
+      
+
+  
+    
+    
 
