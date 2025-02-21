@@ -179,9 +179,9 @@ kubectl get nodes
 
 #### Resources
 
-[UBUNTU SERVER](https://releases.ubuntu.com/jammy/)
-[KUBERNETES](https://kubernetes.io/releases/)
-[CONTAINERD](https://containerd.io/releases/)
-[RUNC](https://github.com/opencontainers/runc/releases)
-[CNI PLUGINS](https://github.com/containernetworking/plugins/releases)
-[CALICO CNI](https://docs.tigera.io/calico/3.27/getting-started/kubernetes/quickstart)
+- [UBUNTU SERVER](https://releases.ubuntu.com/jammy/)
+- [KUBERNETES](https://kubernetes.io/releases/)
+- [CONTAINERD](https://containerd.io/releases/)
+- [RUNC](https://github.com/opencontainers/runc/releases)
+- [CNI PLUGINS](https://github.com/containernetworking/plugins/releases)
+- [CALICO CNI](https://docs.tigera.io/calico/3.27/getting-started/kubernetes/quickstart)
