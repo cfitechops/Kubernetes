@@ -87,9 +87,9 @@ apt update
 
 apt install curl dnsutils dig -y
 
-curl http://<IP SVC>
+curl http://<IP SVC>:8080
 
-curl http://nginx-svc.cfitech
+curl http://nginx-svc.cfitech:8080
 ```
 
 ```sh
