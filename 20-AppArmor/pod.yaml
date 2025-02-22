@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: hello-apparmor
-  namespace: k8s-ns
+  namespace: cfitech
   annotations:
     container.apparmor.security.beta.kubernetes.io/hello: localhost/k8s-apparmor-example-deny-write
 spec:

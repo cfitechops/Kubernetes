@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: web-conf
-  namespace: security-k8s-ns
+  namespace: security-cfitech
 data:
   default: |
     server {

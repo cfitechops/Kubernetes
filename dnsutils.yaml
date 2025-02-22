@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: dnsutils 
-  namespace: k8s-ns
+  namespace: cfitech
 spec:
   containers:
   - image: ubuntu:22.04

@@ -7,23 +7,23 @@ rules:
     resources:
     - group: ""
       resources: ["pods"]
-    namespaces: ["k8s-ns", "security-k8s-ns"]
+    namespaces: ["cfitech", "security-cfitech"]
     
   - level: Metadata
     resources:
     - group: ""
       resources: ["pods/log", "pods/status"]
-    namespaces: ["k8s-ns", "security-k8s-ns"]
+    namespaces: ["cfitech", "security-cfitech"]
 
   - level: Request
     resources:
     - group: "" 
       resources: ["configmaps"]
-    namespaces: ["k8s-ns", "security-k8s-ns"]
+    namespaces: ["cfitech", "security-cfitech"]
 
   - level: Metadata
     omitStages:
       - "RequestReceived"
-    namespaces: ["k8s-ns", "security-k8s-ns"]
+    namespaces: ["cfitech", "security-cfitech"]
 
   - level: None

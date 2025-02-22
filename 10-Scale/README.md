@@ -2,9 +2,9 @@
 
 #### Resources
 
-[horizontal pod autoscale walkthrough](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
-[metrics server](https://github.com/kubernetes-sigs/metrics-server#readme)
-[troubleshooting kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm/)
+- [horizontal pod autoscale walkthrough](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+- [metrics server](https://github.com/kubernetes-sigs/metrics-server#readme)
+- [troubleshooting kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm/)
 
 ```sh
 wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml > metrics.yaml
